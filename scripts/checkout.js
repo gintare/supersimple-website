@@ -6,6 +6,7 @@ let cartSummuryHTML = '';
 
 cart.forEach((cartItem) => {
   const productId = cartItem.productId;
+  console.log(cartItem);
 
   let matchingProduct;
 
