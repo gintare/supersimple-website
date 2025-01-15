@@ -5,6 +5,25 @@ import { renderPaymentSummary } from "./checkout/paymentSummary.js";
 import { loadProducts, loadProductsFetch } from "../data/products.js";
 import { loadCart } from "../data/cart.js";
 
+async function loadPage() {
+
+  await loadProductsFetch();
+
+  const value = await new Promise((resolve) => {
+    loadCart(() => {
+      resolve('value3');
+    });
+  });
+
+  renderOrderSummury();
+  renderPaymentSummary();
+
+  return 'value2';
+}
+
+loadPage();
+
+/*
 Promise.all([
   loadProductsFetch(),
   new Promise((resolve) => {
@@ -18,6 +37,7 @@ Promise.all([
   renderOrderSummury();
   renderPaymentSummary();
 });
+*/
 
 /*
 new Promise((resolve) => {
